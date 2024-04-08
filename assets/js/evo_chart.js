@@ -134,7 +134,7 @@ class EvoChart {
             const currentPrice = data[data.length - 1][4];
             if (!smallScreen) {
                 // Draw a semi-transparent dashed horizontal line at the current price
-                this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.90)';
+                this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
                 this.ctx.setLineDash([5, 3]);
                 this.ctx.beginPath();
                 this.ctx.moveTo(100, (max - currentPrice) * candleHeight);
@@ -149,7 +149,7 @@ class EvoChart {
                 Write the price at the start of the horizontal line
             */
             if (this.cursorPosition) {
-                this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.90)';
+                this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
                 this.ctx.setLineDash([2, 2]);
                 this.ctx.beginPath();
                 this.ctx.moveTo(this.cursorPosition.candle * candleWidth, 0);
@@ -160,7 +160,7 @@ class EvoChart {
                 this.ctx.lineTo(width, (max - this.cursorPosition.price) * candleHeight);
                 this.ctx.stroke();
                 this.ctx.setLineDash([]);
-                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.90)';
+                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
                 this.ctx.font = 'bold 12px Arial';
                 this.ctx.fillText(
                     new Date(
@@ -205,7 +205,7 @@ class EvoChart {
                     ) {
                         return;
                     }
-                    this.ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+                    this.ctx.fillStyle = 'rgba(255, 255, 255, 0.80)';
                     this.ctx.font = 'bold 10px Arial';
                     this.ctx.fillText(
                         priceLevel.toFixed(2),
@@ -217,7 +217,7 @@ class EvoChart {
 
             if (!smallScreen) {
                 // Draw current price at the left side of the dashed line over dashed line in a semi-transparent black box with white 12px text
-                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.90)';
+                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
                 this.ctx.fillRect(
                     0,
                     (max - currentPrice) * candleHeight - 20,
@@ -233,7 +233,7 @@ class EvoChart {
                 );
             } else {
                 // Draw current price at the top of the chart in a semi-transparent black box with white 12px text
-                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.90)';
+                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
                 this.ctx.fillRect(0, 0, 100, 32);
                 this.ctx.fillStyle = 'black';
                 this.ctx.font = 'bold 12px Arial';

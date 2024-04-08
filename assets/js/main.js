@@ -16,6 +16,10 @@ var evoChart = new EvoChart("evo-chart", [
     [9, 200, 250, 150, 225],
     [10, 225, 275, 200, 250],
     [11, 250, 300, 200, 275],
+    //fall!
+    [12, 275, 325, 200, 250],
+    [13, 250, 300, 100, 100],
+    [14, 100, 150, 50, 75],
 ], window.innerWidth, window.innerHeight, "#ff0000", "#00ff00");
 
 //Scale canvas to window size for every 500ms

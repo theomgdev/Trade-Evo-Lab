@@ -33,3 +33,18 @@ setInterval(function() {
 
     evoChart.refresh();
 }, 10);
+
+function getData() {
+    var symbol = document.getElementById("grid-symbol").value;
+    var interval = document.getElementById("grid-interval").value;
+    var start_date = document.getElementById("grid-start-date").value;
+    var end_date = document.getElementById("grid-end-date").value;
+    var data_source = document.getElementById("grid-data-source").value;
+
+    //Get data from data source
+    //For now, we will use a template data
+    data = data_template;
+
+    evoChart.setData(data);
+    evoChart.refresh();
+}

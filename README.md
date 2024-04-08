@@ -1,6 +1,6 @@
 # Trade-Evo Lab by Cahit Karahan
 
-Trade-Evo Lab is a trading laboratory that allows you to test your trading strategies on historical data. It is a simple and easy-to-use tool that allows you to test your trading strategies on historical data. You can backtest your strategies, optimize them, and analyze the results. Trade-Evo Lab is a great tool for traders who want to test their strategies before using them in real trading.
+Trade-Evo Lab is a trading laboratory that allows you to create and test your *no-code* trading strategies on historical data. It is a simple and easy-to-use tool that allows you to test your trading strategies on historical data. You can backtest your strategies, optimize them, and analyze the results. Trade-Evo Lab is a great tool for traders who want to test their strategies before using them in real trading.
 
 ## Installation
 - Clone the repository

@@ -21,8 +21,10 @@ var data_template = [
     [14, 100, 150, 50, 75]
 ];
 
+var data = data_template;
+
 //OHLC (time, open, high, low, close) data
-var evoChart = new EvoChart("evo-chart", data_template);
+var evoChart = new EvoChart("evo-chart", data);
 
 //Scale canvas to window size for every 500ms
 setInterval(function() {

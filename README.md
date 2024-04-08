@@ -13,7 +13,7 @@ Trade-Evo is a simple trading simulation that I developed using Node.js, Express
 - The agent with the highest balance at the end of the simulation is saved as the best agent.
 
 ## Features
-- Historical data of any stock can be fetched from the API, also can be added new data API's thanks to data adapters.
+- Historical data of any stock can be fetched from the API, also new data APIs can be added thanks to data adapters.
 - The simulation can be started, stopped and reset.
 - The simulation can be run step by step, real-time or headless.
 - The simulation can be run with different parameters such as population size, mutation rate, etc.

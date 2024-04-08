@@ -13,7 +13,7 @@ class EvoChart {
      * @param {string} lossColor - The color for loss values.
      * @param {string} gainColor - The color for gain values.
      */
-    constructor(canvasId, data, width, height, lossColor, gainColor) {
+    constructor(canvasId, data, width = -1, height = -1, lossColor = "#f23645", gainColor = "#089981", background = "#161a25") {
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext('2d', { alpha: false });
         this.data = data;
@@ -21,6 +21,8 @@ class EvoChart {
         this.height = height;
         this.lossColor = lossColor;
         this.gainColor = gainColor;
+        this.background = background;
+        this.canvas.style.backgroundColor = this.background;
         this.cursorPosition = null;
 
         this.canvas.addEventListener('mousemove', this.handleMouseMove.bind(this));
@@ -78,7 +80,16 @@ class EvoChart {
      * Refreshes the chart by drawing the background, candles, and price ruler.
      */
     refresh() {
-        const { width, height, data, lossColor, gainColor } = this;
+        var { width, height, data, lossColor, gainColor } = this;
+
+        //if width < 0 width is window.innerWidth
+        if (width < 0) {
+            width = window.innerWidth;
+        }
+        //if height < 0 height is window.innerHeight
+        if (height < 0) {
+            height = window.innerHeight;
+        }
 
         const drawBackground = () => {
             // Draw background and loading
@@ -268,12 +279,23 @@ class EvoChart {
         }
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        if (x < 0 || x > this.width || y < 0 || y > this.height) {
+
+        var { width, height } = this;
+        //if width < 0 width is window.innerWidth
+        if (width < 0) {
+            width = window.innerWidth;
+        }
+        //if height < 0 height is window.innerHeight
+        if (height < 0) {
+            height = window.innerHeight;
+        }
+
+        if (x < 0 || x > width || y < 0 || y > height) {
             return;
         }
-        const candleWidth = this.width / this.data.length;
+        const candleWidth = width / this.data.length;
         const candleHeight =
-            this.height /
+            height /
             (Math.max(
                 ...this.data.map((candle) => candle[2])
             ) -

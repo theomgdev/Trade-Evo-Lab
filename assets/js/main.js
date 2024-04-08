@@ -2,8 +2,7 @@
 //scale evo-chart canvas to window size
 var canvas = document.getElementById("evo-chart");
 
-//OHLC (time, open, high, low, close) data
-var evoChart = new EvoChart("evo-chart", [
+var data_template = [
     [0, 100, 200, 50, 150],
     [1, 150, 250, 100, 200],
     [2, 200, 300, 150, 250],
@@ -19,8 +18,11 @@ var evoChart = new EvoChart("evo-chart", [
     //fall!
     [12, 275, 325, 200, 250],
     [13, 250, 300, 100, 100],
-    [14, 100, 150, 50, 75],
-], window.innerWidth, window.innerHeight, "#ff0000", "#00ff00");
+    [14, 100, 150, 50, 75]
+];
+
+//OHLC (time, open, high, low, close) data
+var evoChart = new EvoChart("evo-chart", data_template);
 
 //Scale canvas to window size for every 500ms
 setInterval(function() {

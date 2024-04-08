@@ -144,7 +144,11 @@ class EvoChart {
             }
             // Check if small screen
             const smallScreen = width < 500;
-            const currentPrice = data[data.length - 1][4];
+            const currentCandle = data[data.length - 1];
+            const currentPrice = currentCandle[4];
+            const open = currentCandle[1];
+            const close = currentCandle[4];
+            
             if (!smallScreen) {
                 // Draw a semi-transparent dashed horizontal line at the current price
                 this.ctx.strokeStyle = open > close ? lossColor : gainColor;

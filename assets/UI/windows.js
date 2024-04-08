@@ -1,4 +1,3 @@
-
 // ########## DATA MANAGEMENT WINDOW ##########
 //data management window for evo-chart using JSPanel
 let evoChartWindow = jsPanel.create({

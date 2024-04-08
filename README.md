@@ -24,6 +24,7 @@ Trade-Evo is a simple trading simulation that I developed using Node.js, Express
 - Clone the repository
 - Run `npm install` in the project directory
 - Run `npm run dev` to start the server
+- Open your browser and go to `http://localhost:3000`
 
 ## Usage
 

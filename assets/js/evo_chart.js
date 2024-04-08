@@ -145,13 +145,15 @@ class EvoChart {
             const currentPrice = data[data.length - 1][4];
             if (!smallScreen) {
                 // Draw a semi-transparent dashed horizontal line at the current price
-                this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
+                this.ctx.strokeStyle = open > close ? lossColor : gainColor;
+                this.ctx.globalAlpha = 0.95;
                 this.ctx.setLineDash([5, 3]);
                 this.ctx.beginPath();
                 this.ctx.moveTo(100, (max - currentPrice) * candleHeight);
                 this.ctx.lineTo(width, (max - currentPrice) * candleHeight);
                 this.ctx.stroke();
                 this.ctx.setLineDash([]);
+                this.ctx.globalAlpha = 1;
             }
             // Draw cursorPosition {candle: number, price: number, date:Date}
             /*
@@ -228,14 +230,16 @@ class EvoChart {
 
             if (!smallScreen) {
                 // Draw current price at the left side of the dashed line over dashed line in a semi-transparent black box with white 12px text
-                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+                this.ctx.globalAlpha = 0.95;
+                this.ctx.fillStyle = open > close ? lossColor : gainColor;
                 this.ctx.fillRect(
                     0,
                     (max - currentPrice) * candleHeight - 20,
                     100,
                     40
                 );
-                this.ctx.fillStyle = 'black';
+                this.ctx.globalAlpha = 1;
+                this.ctx.fillStyle = 'white';
                 this.ctx.font = 'bold 12px Arial';
                 this.ctx.fillText(
                     currentPrice.toFixed(2),
@@ -244,9 +248,11 @@ class EvoChart {
                 );
             } else {
                 // Draw current price at the top of the chart in a semi-transparent black box with white 12px text
-                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+                this.ctx.globalAlpha = 0.95;
+                this.ctx.fillStyle = open > close ? lossColor : gainColor;
                 this.ctx.fillRect(0, 0, 100, 32);
-                this.ctx.fillStyle = 'black';
+                this.ctx.globalAlpha = 1;
+                this.ctx.fillStyle = 'white';
                 this.ctx.font = 'bold 12px Arial';
                 this.ctx.fillText(currentPrice.toFixed(2), 10, 20);
             }

@@ -93,7 +93,8 @@ class EvoChart {
 
         const drawBackground = () => {
             // Draw background and loading
-            this.ctx.clearRect(0, 0, width, height);
+            this.ctx.fillStyle = this.background;
+            this.ctx.fillRect(0, 0, width, height);
             this.ctx.fillStyle = 'white';
             this.ctx.font = '20px Arial';
             this.ctx.fillText('Loading...', 10, 50);
@@ -101,7 +102,8 @@ class EvoChart {
             // Clear loading
             if (data.length > 0) {
                 // Clear only the loading text
-                this.ctx.clearRect(0, 0, 100, 100);
+                this.ctx.fillStyle = this.background;
+                this.ctx.fillRect(0, 0, 100, 100);
                 return true;
             } else {
                 return false;
@@ -165,8 +167,8 @@ class EvoChart {
                 this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
                 this.ctx.setLineDash([2, 2]);
                 this.ctx.beginPath();
-                this.ctx.moveTo(this.cursorPosition.candle * candleWidth, 0);
-                this.ctx.lineTo(this.cursorPosition.candle * candleWidth, height);
+                this.ctx.moveTo(this.cursorPosition.candle * candleWidth + candleWidth / 2, 0);
+                this.ctx.lineTo(this.cursorPosition.candle * candleWidth + candleWidth / 2, height);
                 this.ctx.stroke();
                 this.ctx.beginPath();
                 this.ctx.moveTo(0, (max - this.cursorPosition.price) * candleHeight);
@@ -183,7 +185,7 @@ class EvoChart {
                         .toISOString()
                         .replace('T', ' ')
                         .slice(0, 16),
-                    this.cursorPosition.candle * candleWidth + 10,
+                    this.cursorPosition.candle * candleWidth + candleWidth / 2 + 10,
                     height - 10
                 );
                 this.ctx.fillText(

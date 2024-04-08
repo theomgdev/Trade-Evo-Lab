@@ -34,6 +34,18 @@ Trade-Evo is a simple trading simulation that I developed using Node.js, Express
 - Click on the `Stop Simulation` button to stop the simulation
 - Click on the `Reset Simulation` button to reset the simulation
 
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+- Fork the repository
+- Create your feature branch (`git checkout -b feature/AmazingFeature`)
+- Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+- Push to the branch (`git push origin feature/AmazingFeature`)
+- Create a new Pull Request
+- Wait for the review
+- After the review, the pull request will be merged
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

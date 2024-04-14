@@ -1,14 +1,29 @@
-// ########## DATA MANAGEMENT WINDOW ##########
-//data management window for evo-chart using JSPanel
-let evoChartWindow = jsPanel.create({
+var defaultWinOpt = {
     theme: 'dark',
-    headerTitle: 'Data',
-    position: 'center-top',
+    position: 'center',
     setStatus: 'minimized',
-    contentSize: '600 600',
+    contentSize: {
+        width: function() {
+            return Math.min(window.innerWidth * 0.8, 800);
+        },
+        height: function() {
+            return window.innerHeight * 0.8;
+        }
+    },
     headerControls: {
         close: 'remove'
-    },
+    }
+};
+
+// ########## DATA MANAGEMENT WINDOW ##########
+//data management window for evo-chart using JSPanel
+let dataManWindow = jsPanel.create({
+    theme: defaultWinOpt.theme,
+    headerTitle: 'Data Manager',
+    position: defaultWinOpt.position,
+    setStatus: defaultWinOpt.setStatus,
+    contentSize: defaultWinOpt.contentSize,
+    headerControls: defaultWinOpt.headerControls,
     content: `
         <div class="p-3">
             <div class="flex flex-wrap -mx-3 mb-6">

@@ -69,8 +69,8 @@ let dataManWindow = jsPanel.create({
                     </label>
                     <select class="block appearance-none w-full bg-slate-200 border border-slate-200 text-slate-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-slate-500" id="grid-data-source">
                         <option>Binance</option>
-                        <option>Yahoo Finance (WIP)</option>
-                        <option>Alpha Vantage (WIP)</option>
+                        <option disabled>Yahoo Finance (WIP)</option>
+                        <option disabled>Alpha Vantage (WIP)</option>
                     </select>
                 </div>
             </div>
